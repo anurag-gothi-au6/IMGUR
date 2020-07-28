@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchHomeVideos } from "../redux/actions/videoActions";
-import Videos from "../components/Videos";
+import { fetchHomeImages } from "../redux/actions/imageActions";
+import Images from "../components/Images";
 class HomePage extends Component {
   componentDidMount() {
-    this.props.fetchHomeVideos();
+    this.props.fetchHomeImages();
   }
 
   render() {
     return (
       <div>
-        <Videos />
+        <Images />
       </div>
     );
   }
@@ -22,4 +22,4 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchHomeVideos })(HomePage);
+export default connect(mapStateToProps, { fetchHomeImages })(HomePage);

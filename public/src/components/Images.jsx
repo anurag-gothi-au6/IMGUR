@@ -1,17 +1,17 @@
 import React from "react";
-import VideoListItem from "./VideoListItem";
+import ImageListItem from "./ImageListItem";
 import { CardDeck } from "reactstrap";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-const Videos = ({ videos, history }) => {
+const Images = ({ Images, history }) => {
   return (
     <>
       <CardDeck style={{ marginRight: "auto" }}>
-        {videos !== null ? (
-          videos.map((video) => (
-            <VideoListItem
-              key={video.id}
-              video={video}
+        {Images !== null ? (
+          Images.map((image) => (
+            <ImageListItem
+              key={image.id}
+              image={image}
             />
           ))
         ) : (
@@ -24,7 +24,7 @@ const Videos = ({ videos, history }) => {
 
 const mapStateToProps = (storeState) => {
   return {
-    videos: storeState.videoState.videos
+    Images: storeState.imageState.image
   };
 };
-export default withRouter(connect(mapStateToProps)(Videos));
+export default withRouter(connect(mapStateToProps)(Images));

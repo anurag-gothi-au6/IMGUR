@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import SimpleImageSlider from "react-simple-image-slider";
 import { connect } from "react-redux";
 import { addFav } from "../redux/actions/favActions";
-const VideoListItem = ({ video, addFav}) => {
+const ImageListItem = ({ image, addFav}) => {
   let button = {
   }
   if(localStorage.getItem("fav")){
@@ -11,7 +11,7 @@ const VideoListItem = ({ video, addFav}) => {
       const fav = JSON.parse(localStorage.getItem("fav"))
     for(let i=0;i<=fav.length;i++){
       if(fav[i]){
-        if(fav[i].photoId===video.id){
+        if(fav[i].photoId===image.id){
           button={
             display:'none'
           }
@@ -22,8 +22,8 @@ const VideoListItem = ({ video, addFav}) => {
   }
   
   const images = [];
-  for (let i = 0; i < video.url.length; i++) {
-    images.push({ url: video.url[i] });
+  for (let i = 0; i < image.url.length; i++) {
+    images.push({ url: image.url[i] });
   }
   return (
     <Card
@@ -41,9 +41,9 @@ const VideoListItem = ({ video, addFav}) => {
         images={images}
       />
       <Card.Body>
-        <Card.Title>{video.title}</Card.Title>
-        <Card.Text>{video.description}</Card.Text>
-        {video.privacy === "private" ? (
+        <Card.Title>{image.title}</Card.Title>
+        <Card.Text>{image.description}</Card.Text>
+        {image.privacy === "private" ? (
           <span role="img" aria-label="">
             🔒
           </span>
@@ -59,7 +59,7 @@ const VideoListItem = ({ video, addFav}) => {
           <button
           style={button}
             onClick={(e) => {
-              addFav(video.id);
+              addFav(image.id);
               e.target.style.display='none'
             }}
             className="btn btn-warning"
@@ -76,4 +76,4 @@ const VideoListItem = ({ video, addFav}) => {
 
 
 
-export default connect(null, { addFav })(VideoListItem);
+export default connect(null, { addFav })(ImageListItem);

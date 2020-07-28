@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux'
 //All reducers
-import videoReducer from './reducers/videoReducer'
+import imageReducer from './reducers/imageReducer'
 import userReducer from './reducers/userReducer'
-import currentVideoState from './reducers/currentVideoReducer'
 import favReducer from './reducers/favReducer'
 import myReducer from './reducers/myReducer'
 
 const rootReducer = combineReducers({
-    videoState: videoReducer,
+    imageState: imageReducer,
     userState: userReducer,
-    currentVideoState: currentVideoState,
     favState:favReducer,
     myState:myReducer
 })
